@@ -7,7 +7,7 @@ app.use(cors());
 app.use(json());
 
 // Load student data from JSON
-const students = JSON.parse(readFileSync("students.json", "utf-8"));
+const students = JSON.parse(readFileSync("./public/students.json", "utf-8"));
 
 
 app.use(cors({

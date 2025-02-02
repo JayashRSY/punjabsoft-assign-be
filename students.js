@@ -1,4 +1,4 @@
-[
+const students = [
     {
         "name": "Amritpal Singh",
         "class": 10,
@@ -250,3 +250,5 @@
         "rollNumber": 10050
     }
 ]
+
+export default students;

@@ -1,13 +1,10 @@
 import express, { json } from "express";
-import { readFileSync } from "fs";
 import cors from "cors";
+import students from "./students.js";
 
 const app = express();
 app.use(cors());
 app.use(json());
-
-// Load student data from JSON
-const students = JSON.parse(readFileSync("./public/students.json", "utf-8"));
 
 
 app.use(cors({

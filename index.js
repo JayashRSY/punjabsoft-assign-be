@@ -9,21 +9,17 @@ app.use(json());
 // Load student data from JSON
 const students = JSON.parse(readFileSync("students.json", "utf-8"));
 
-const allowedOrigins = [
-    "https://punjabsoft-assign.netlify.app", // Deployed frontend
-    "http://localhost:4200",
-    "http://localhost:3000",
-    "http://localhost:5173" // Local development frontend
-];
 
 app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error("Not allowed by CORS"));
-        }
-    }
+    origin: [
+        "https://punjabsoft-assign.netlify.app", // Deployed frontend
+        "http://localhost:4200",
+        "http://localhost:3000",
+        "http://localhost:5173" // Local development frontend
+    ],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204,
 }));
 
 app.get("/", (req, res) => {

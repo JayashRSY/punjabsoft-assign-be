@@ -1,13 +1,13 @@
-const express = require("express");
-const fs = require("fs");
-const cors = require("cors");
+import express, { json } from "express";
+import { readFileSync } from "fs";
+import cors from "cors";
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(json());
 
 // Load student data from JSON
-const students = JSON.parse(fs.readFileSync("students.json", "utf-8"));
+const students = JSON.parse(readFileSync("students.json", "utf-8"));
 
 const allowedOrigins = [
     "https://punjabsoft-assign.netlify.app", // Deployed frontend

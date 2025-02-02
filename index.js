@@ -26,7 +26,11 @@ app.use(cors({
     }
 }));
 
-
+app.get("/", (req, res) => {
+    res.json({
+        message: "Hello from server!"
+    });
+});
 // Search API
 app.get("/api/students", (req, res) => {
     const query = req.query.query?.toLowerCase() || "";
